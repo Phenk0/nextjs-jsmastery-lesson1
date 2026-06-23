@@ -5,7 +5,7 @@ export default function DashboardLayout({
 }) {
   return (
     <div>
-      <h1 className="text-3xl font-bold underline text-right uppercase">
+      <h1 className="text-right text-3xl font-bold uppercase underline">
         Dashboard Layout
       </h1>
       {children}

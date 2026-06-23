@@ -5,7 +5,7 @@ export default function RootLayout({
 }) {
   return (
     <div>
-      <h1 className="text-3xl font-bold underline text-left">RootLayout</h1>
+      <h1 className="text-left text-3xl font-bold underline">RootLayout</h1>
       {children}
     </div>
   );
