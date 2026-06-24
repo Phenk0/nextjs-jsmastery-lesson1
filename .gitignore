@@ -20,9 +20,6 @@
 # production
 /build
 
-#IDEA
-/.idea/
-
 # misc
 .DS_Store
 *.pem
