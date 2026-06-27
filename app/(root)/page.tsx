@@ -2,6 +2,7 @@ import Hello from '@/app/Components/Hello';
 import { auth, signOut } from '@/auth';
 import { Button } from '@/components/ui/button';
 import ROUTES from '@/constants/routes';
+import Link from 'next/link';
 
 export default async function Home() {
   const session = await auth();
@@ -13,17 +14,23 @@ export default async function Home() {
       <h1 className="font-space-grotesk h1-bold text-light-500">
         Welcome to Next.js 15
       </h1>
-      <form
-        action={async () => {
-          'use server';
+      {session ? (
+        <form
+          action={async () => {
+            'use server';
 
-          await signOut({ redirectTo: ROUTES.SIGN_IN });
-        }}
-      >
-        <Button type="submit" variant="outline" className="px-10 py-4">
-          Log out
-        </Button>
-      </form>
+            await signOut({ redirectTo: ROUTES.SIGN_IN });
+          }}
+        >
+          <Button type="submit" variant="outline" className="px-10 py-4">
+            Log out
+          </Button>
+        </form>
+      ) : (
+        <Link href={ROUTES.SIGN_IN}>
+          <Button className="px-10 py-4">Log in</Button>
+        </Link>
+      )}
       <Hello />
     </>
   );
