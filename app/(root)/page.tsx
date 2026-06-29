@@ -1,8 +1,8 @@
-import Hello from '@/app/Components/Hello';
+import Link from 'next/link';
+
 import { auth, signOut } from '@/auth';
 import { Button } from '@/components/ui/button';
 import ROUTES from '@/constants/routes';
-import Link from 'next/link';
 
 export default async function Home() {
   const session = await auth();
@@ -31,7 +31,6 @@ export default async function Home() {
           <Button className="px-10 py-4">Log in</Button>
         </Link>
       )}
-      <Hello />
     </>
   );
 }
